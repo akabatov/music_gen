@@ -1,8 +1,8 @@
- #relative_scales --> minor : major
+#relative_scales --> minor : major
 relative_scales = {'C':'Ef','D':'F','E':'G','F':'Af','G':'Bf','A':'C','B':'D',   
                    'Af':'Cf','Bf':'Df', 'Ef':'Gf','F#':'A','C#':'E','G#':'B',
-                   'D#':'F#','A#':'C#'} 
-#Define the notes
+                   'D#':'F#','A#':'C#'}
+#Define the notes 
 natural_sharps = ['G', 'D', 'A', 'E', 'B', 'F#', 'C#']
 natural_flats = ['F', 'Bf', 'Ef', 'Af', 'Df', 'Gf', 'Cf']
 sharps = [['F#'], 
@@ -19,6 +19,10 @@ flats = [['Bf'],
          ['Bf','Ef','Af','Df','Gf'],
          ['Bf','Ef','Af','Df','Gf','Cf'],
          ['Bf','Ef','Af','Df','Gf','Cf','Ff']]
+#The rearranged scale without any signs 
+just_notes = []
+#flag for recursion so the scale doesnt get rearranged with the note for the relative major
+flag = False
 
 #Rearranges the scale to start from a given note
 def rearrange(note):
@@ -35,11 +39,16 @@ def rearrange(note):
         
 #Return the scale of a key 
 def scale_generator(key,major):
-    just_notes = rearrange(key)
+    global flag
+    global just_notes
     signs = []
-    
+    if flag == False:
+        just_notes = rearrange(key)
+        
     #If minor then use relative scales 
     if major == False:
+        flag = True 
+        just_notes = rearrange(key)
         return scale_generator(relative_scales[key], True)
         
     #If it is a natural major and not F then get the sharps for the scale
@@ -62,7 +71,7 @@ def scale_generator(key,major):
     return just_notes
     
 def main():
-    print(scale_generator('F',False))
+    print(scale_generator('G',False))
     
 if __name__ == "__main__":
     main()
