@@ -19,6 +19,11 @@ def triad_gen(scale, note):
     else: return "Error: note must be an int in range 1<= x <= 7" 
     #print("The root triad is: '{0}'\nThe second minor chord is: '{1}'\nThe third minor chord is: '{2}'\nThe fourth major chord is: '{3}'\nThe fifth major chord is: '{4}'\nThe sixth minor chord is: '{5}'\nThe seventh diminished chord is: '{6}'".format(first_triad, second_minor, third_minor, fourth_major, fifth_major, sixth_minor, seventh_dim))
 
+#Adds a root note on top of a triad
+def triad_add_root(triad):
+    triad.append(triad[0])
+    return triad
+    
 #Geneartes seventh chords in a given scale from a given note
 def seventh_gen(scale, note):
     #Make a wrapping effect
@@ -109,6 +114,7 @@ def getDistance(note1, note2):
     
 def main():
     test = ['G', 'A', 'B', 'C', 'D', 'E', 'F#']
+    print(triad_add_root(['D','F#','A']))
     print(seventh_gen(test, 7))
     
 if __name__ == "__main__":
