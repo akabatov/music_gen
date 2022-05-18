@@ -3,7 +3,7 @@ relative_scales = {'C':'Ef','D':'F','E':'G','F':'Af','G':'Bf','A':'C','B':'D',
                    'Af':'Cf','Bf':'Df', 'Ef':'Gf','F#':'A','C#':'E','G#':'B',
                    'D#':'F#','A#':'C#'}
 #Define the notes 
-natural_sharps = ['G', 'D', 'A', 'E', 'B', 'F#', 'C#']
+natural_sharps = ['G', 'D', 'A', 'E', 'B', 'F#', 'C#', 'G#', 'D#', 'A#', 'E#', 'B#']
 natural_flats = ['F', 'Bf', 'Ef', 'Af', 'Df', 'Gf', 'Cf']
 sharps = [['F#'], 
           ['F#','C#'], 
@@ -11,7 +11,12 @@ sharps = [['F#'],
           ['F#','C#','G#','D#'], 
           ['F#','C#','G#','D#','A#'],
           ['F#','C#','G#','D#','A#','E#'],
-          ['F#','C#','G#','D#','A#','E#','B#']]
+          ['F#','C#','G#','D#','A#','E#','B#'],
+          ['F##','C#','G#','D#','A#','E#','B#'],
+          ['F##','C##','G#','D#','A#','E#','B#'],
+          ['F##','C##','G##','D#','A#','E#','B#'],
+          ['F##','C##','G##','D##','A#','E#','B#'],
+          ['F##','C##','G##','D##','A##','E#','B#']]
 flats = [['Bf'], 
          ['Bf','Ef'], 
          ['Bf','Ef','Af'], 
@@ -71,7 +76,7 @@ def scale_generator(key,major):
     return just_notes
     
 def main():
-    print(scale_generator('G',False))
+    print(scale_generator('A#',False))
     
 if __name__ == "__main__":
     main()
