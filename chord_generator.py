@@ -16,7 +16,7 @@ def triad_gen(scale, note):
     elif note == 5: return two_octave[4:9:2]
     elif note == 6: return two_octave[5:10:2]
     elif note == 7: return two_octave[6:11:2]
-    else: return "Error: note must be an int in range 1<= x <= 7" 
+    else: return "Error: note must be an int in range 1-7" 
     #print("The root triad is: '{0}'\nThe second minor chord is: '{1}'\nThe third minor chord is: '{2}'\nThe fourth major chord is: '{3}'\nThe fifth major chord is: '{4}'\nThe sixth minor chord is: '{5}'\nThe seventh diminished chord is: '{6}'".format(first_triad, second_minor, third_minor, fourth_major, fifth_major, sixth_minor, seventh_dim))
 
 #Adds a root note on top of a triad
