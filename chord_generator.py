@@ -21,21 +21,73 @@ def triad_gen(scale, note):
 
 #Geneartes seventh chords in a given scale from a given note
 def seventh_gen(scale, note):
-    double_octave = scale + scale
-    if note == 1: return scale[0:7:2]
-    elif note == 2: 
-        print(double_octave[7])
-        print(double_octave[3])
-        for i in piano_flats:
+    #Make a wrapping effect
+    double_octave = scale + scale 
+    print(double_octave)
+    
+    #Maj7 from a root note
+    if note == 1: return scale[0:7:2]       
+    
+    #Min7 from II note
+    elif note == 2:                         
+        for i in piano_flats:                
             if i == double_octave[3]:
                 double_octave[3] = piano_flats[piano_flats.index(i)-1] 
                 break 
         for j in piano_flats:
             if j == double_octave[7]: 
                 double_octave[7] = piano_flats[piano_flats.index(j)-1]
-                break 
+                break
         return double_octave[1:8:2]
-
+    
+    #Min7 from III note
+    elif note == 3:                         
+        for i in piano_flats:
+            if i == double_octave[4]:
+                double_octave[4] = piano_flats[piano_flats.index(i)-1] 
+                break 
+        for j in piano_flats:
+            if j == double_octave[8]: 
+                double_octave[8] = piano_flats[piano_flats.index(j)-1]
+                break
+        return double_octave[2:9:2]
+    #Maj7 from a IV note
+    elif note == 4: return double_octave[3:10:2]
+    
+    #DOM7 from a V note
+    elif note == 5: return double_octave[4:11:2] 
+    
+    #Min7 from a VI note
+    elif note == 6:                                                                        
+        for i in piano_flats:
+            if i == double_octave[7]:
+                double_octave[7] = piano_flats[piano_flats.index(i)-1] 
+                break 
+        for j in piano_flats:
+            if j == double_octave[11]: 
+                double_octave[11] = piano_flats[piano_flats.index(j)-1]
+                break
+        return double_octave[5:12:2]
+        
+    #Halfdim7 from VII note
+    elif note == 7:                                      
+        for i in piano_flats:
+            if i == double_octave[8]:
+                double_octave[8] = piano_flats[piano_flats.index(i)-1] 
+                break 
+        for k in piano_flats:
+            if k == double_octave[10]:
+                double_octave[10] = piano_flats[piano_flats.index(k)-1]
+                break
+        for j in piano_flats:
+            if j == double_octave[12]: 
+                double_octave[12] = piano_flats[piano_flats.index(j)-1]
+                break
+        return double_octave[6:13:2]
+    #If note is out of range 
+    return "Error: Please input a note in range 1-7"
+        
+        
 #Returns true if the scale is major, False if minor 
 def isMajor(scale):
     if getDistance(scale[0], scale[2]) == 4: return True 
@@ -56,8 +108,8 @@ def getDistance(note1, note2):
     return index2 - index1
     
 def main():
-    test = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
-    print(seventh_gen(test, 2))
+    test = ['G', 'A', 'B', 'C', 'D', 'E', 'F#']
+    print(seventh_gen(test, 7))
     
 if __name__ == "__main__":
     main()
