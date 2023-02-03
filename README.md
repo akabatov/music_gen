@@ -1,2 +1,2 @@
 # music_gen
-Genearate the sclaes or chords for given keys (notes)
+Generate the scales or chords for given keys (notes)
